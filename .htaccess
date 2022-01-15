@@ -1,0 +1,33 @@
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www.(.*) [NC]
+RewriteRule ^(.*) https://%1/$1 [R=301,L]
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+###############ESCONDENDO A TECNOLOGIA
+RewriteRule ^([0-9A-Za-z-_]+)$ /$1.php
+
+###############URL AMIGAVEL
+#RewriteRule ^PAGINA/([a-z0-9-]+)/?$ /SCRIPT.php?VAR=$1 [NC,L]
+#RewriteRule ^PAGINA/([a-z0-9-]+)/?$ /SCRIPT.php?VAR=$1 [NC,L]
+#RewriteRule ^PAGINA/([a-z0-9-]+)/([a-z0-9-]+)/...?$ /SCRIPT?VAR1=$1&VAR2=$2... [NC,L]
+
+#############CUSTON
+
+#############RewriteRule ^produto/([a-z0-9-]+)/([a-z0-9-]+)?$ /produto.php?produto_id=$1 [NC,L]
+RewriteRule ^produtos/([a-z0-9-]+)?$ /produtos.php?subcategoria=$1 [NC,L]
+RewriteRule ^produto/([a-z0-9-]+)/([a-z0-9-]+)?$ /produto.php?subcategoria=$1&produto=$2 [NC,L]
+
+
+ErrorDocument 400 /xpainel/pegaerros.php?erro=400
+ErrorDocument 404 /xpainel/pegaerros.php?erro=404
+ErrorDocument 500 /xpainel/pegaerros.php?erro=500
+ErrorDocument 501 /xpainel/pegaerros.php?erro=501
+ErrorDocument 503 /xpainel/pegaerros.php?erro=503
+ErrorDocument 504 /xpainel/pegaerros.php?erro=504
+ErrorDocument 505 /xpainel/pegaerros.php?erro=505

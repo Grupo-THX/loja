@@ -1,0 +1,7 @@
+[13-Jan-2022 14:10:34 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ''/xpainel/gateway/gerencianet_' (T_ENCAPSED_AND_WHITESPACE) in /home2/carmelitanacom/public_html/xpainel/class/L.php on line 357
+[13-Jan-2022 14:56:12 America/Sao_Paulo] PHP Fatal error:  Uncaught Error: Call to undefined function getPedidosPagamentoLink() in /home2/carmelitanacom/public_html/xpainel/class/L.php:339
+Stack trace:
+#0 /home2/carmelitanacom/public_html/loja/perfil.php(24): L::getPedidosPerfil()
+#1 {main}
+  thrown in /home2/carmelitanacom/public_html/xpainel/class/L.php on line 339
+[14-Jan-2022 11:10:28 America/Sao_Paulo] PHP Parse error:  syntax error, unexpected ';', expecting ']' in /home2/carmelitanacom/public_html/xpainel/gateway/gerencianet_cartao/sendToPayment.php on line 49
